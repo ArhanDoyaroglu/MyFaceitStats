@@ -5,7 +5,7 @@
 ## Motivation
 
 
-Faceit matches are often judged by KD (Kill/Death ratio). KD is easy to read, but it can miss what really wins rounds. A player can keep a good KD by getting late kills, while another player can take hard entry duels that open the site and help the team but lower KD. The first duel in a round changes the state from 5v5 to 5v4 or 4v5. With a 5v4 lead, teams trade more safely, take map control more easily, and close the round more often. Because of this, entry actions may explain winning better than KD, especially early in the round.
+FACEIT is a competitive gaming platform that hosts professional Counter-Strike 2 (CS2) matches. In FACEIT matches, players are often judged by their KD (Kill/Death ratio). KD is easy to read, but it can miss what really wins rounds. A player can keep a good KD by getting late kills, while another player can take hard entry duels that open the site and help the team but lower KD. The first duel in a round changes the state from 5v5 to 5v4 or 4v5. With a 5v4 lead, teams trade more safely, take map control more easily, and close the round more often. Because of this, entry actions may explain winning better than KD, especially early in the round.
 
 **This project focuses on two key questions:**
 1. Do entry signals relate to **win/loss** and **score difference** more strongly than KD?
