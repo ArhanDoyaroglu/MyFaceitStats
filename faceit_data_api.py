@@ -1,8 +1,8 @@
 import os, time, requests, pandas as pd
 from datetime import datetime
 
-API_KEY =  # API key provided by Faceit API
-NICK    =  # Your Faceit username
+API_KEY = ""  # API key provided by Faceit API
+NICK    = ""  # Your Faceit username
 GAME    = "cs2"                      
 
 
@@ -142,12 +142,12 @@ def extract_my_rows(stats_json, match_details, my_nickname):
                     round_difference = my_team_score - enemy_team_score
                     
                     rows.append({
-                        # Temel Bilgiler
+                        # Basic Information
                         "date": match_date,
                         "map": map_name,
                         "result": result,
                         
-                        # Temel Performans
+                        # Basic Performance
                         "kills": int(s.get("Kills", 0)),
                         "deaths": int(s.get("Deaths", 0)),
                         "assists": int(s.get("Assists", 0)),
@@ -157,19 +157,19 @@ def extract_my_rows(stats_json, match_details, my_nickname):
                         "kr": float(s.get("K/R Ratio", 0) or 0),
                         "mvps": int(s.get("MVPs", 0)),
                         
-                        # Detaylı Performans
+                        # Detailed Performance
                         "adr": adr,
                         "first_kills": first_kills,
                         "first_deaths": first_deaths,
                         "entry_count": entry_count,
                         "entry_wins": entry_wins,
                         
-                        # Maç Bilgileri
+                        # Match Information
                         "rounds_played": rounds_played,
                         "overtime": overtime,
                         "match_duration_min": round(match_duration / 60, 1),
                         
-                        # Takım Skorları
+                        # Team Scores
                         "my_team_score": my_team_score,
                         "enemy_team_score": enemy_team_score,
                         "round_difference": round_difference
