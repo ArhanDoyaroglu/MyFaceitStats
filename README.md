@@ -15,9 +15,9 @@ Faceit matches are often judged by KD. KD is easy to read, but it can miss what 
 
 ## Data Sources
 
-### 1. Faceit API Data
-- **Source:** [FACEIT Data API](https://docs.faceit.com/docs/data-api/)
-- **Key Fields:**
+### **1. Faceit API Data**
+- **Source**: [FACEIT Data API](https://docs.faceit.com/docs/data-api/)
+- **Key Features**:
   - `date` : Match date and time.
   - `map` : Map name. Kept in the file but not used in models.
   - `result` : Win or Loss.
@@ -40,3 +40,12 @@ Faceit matches are often judged by KD. KD is easy to read, but it can miss what 
   - `my_team_score` : Final score for my team.
   - `enemy_team_score` : Final score for the other team.
   - `round_difference` : `my_team_score - enemy_team_score`.
+
+---
+
+## **Data Collection**
+1. **Faceit API Data**:
+   - **API Integration**: Fetched data using the **FACEIT Data API** (v4).
+     - **Tools**: Python `requests` library with a registered [FACEIT API key](https://faceit.com/developers).
+     - **Features**: Automated data collection from 100 most recent CS2 matches, with error handling for missing statistics, timestamp conversion, overtime detection, and derived metrics calculation.
+     - 📎 [`faceit_data_api.py`](./faceit_data_api.py)
