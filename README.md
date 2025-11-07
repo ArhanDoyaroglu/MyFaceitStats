@@ -47,5 +47,5 @@ FACEIT is a competitive gaming platform that hosts professional Counter-Strike 2
 1. **Faceit API Data**:
    - **API Integration**: Fetched data using the **FACEIT Data API** (v4).
      - **Tools**: Python `requests` library with a registered [FACEIT API key](https://faceit.com/developers).
-     - **Features**: Automated data collection from 100 most recent CS2 matches, with error handling for missing statistics, timestamp conversion, overtime detection, and derived metrics calculation.
+     - **Features**: Automated data collection from 500 most recent CS2 matches, with error handling for missing statistics, timestamp conversion, overtime detection, and derived metrics calculation.
      - 📎 [`faceit_data_api.py`](./faceit_data_api.py)

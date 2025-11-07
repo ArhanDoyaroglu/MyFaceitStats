@@ -180,14 +180,23 @@ def main():
     player = get_player(NICK)
     pid = player["player_id"]
     
-    # Get 100 matches
-    match_ids = get_recent_match_ids(pid, limit=100, offset=0)
+    # Get 500 matches in 5 batches of 100 (API limit is 100 per request)
+    all_match_ids = []
+    for batch in range(5):
+        offset = batch * 100
+        print(f"Fetching matches batch {batch + 1}/5 (offset: {offset})...")
+        batch_match_ids = get_recent_match_ids(pid, limit=100, offset=offset)
+        if not batch_match_ids:
+            print(f"  → No more matches found at offset {offset}")
+            break
+        all_match_ids.extend(batch_match_ids)
+        print(f"  → Got {len(batch_match_ids)} matches (total so far: {len(all_match_ids)})")
     
     all_rows = []
-    total_matches = len(match_ids)
-    print(f"Processing {total_matches} matches...")
+    total_matches = len(all_match_ids)
+    print(f"\nProcessing {total_matches} matches...")
     
-    for i, mid in enumerate(match_ids, 1):
+    for i, mid in enumerate(all_match_ids, 1):
         print(f"Processing match {i}/{total_matches} (ID: {mid})")
         stats = get_match_stats(mid)
         if stats is None:  # Skip if no stats data available
