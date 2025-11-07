@@ -47,5 +47,30 @@ FACEIT is a competitive gaming platform that hosts professional Counter-Strike 2
 1. **Faceit API Data**:
    - **API Integration**: Fetched data using the **FACEIT Data API** (v4).
      - **Tools**: Python `requests` library with a registered [FACEIT API key](https://faceit.com/developers).
-     - **Features**: Automated data collection from 500 most recent CS2 matches, with error handling for missing statistics, timestamp conversion, overtime detection, and derived metrics calculation.
+     - **Features**: Automated data collection from 100 most recent CS2 matches, with error handling for missing statistics, timestamp conversion, overtime detection, and derived metrics calculation.
      - 📎 [`faceit_data_api.py`](./faceit_data_api.py)
+
+## **Hypothesis Testing**
+
+1. **H1: Entry win rate is positively associated with winning the match.**
+   - **H0**: Entry-related signals (especially `entry_win_rate`) are not associated with `result` (win/loss).
+   - **H1**: Higher entry-related signals (especially `entry_win_rate`) are positively associated with `result` (win/loss).
+   - **Variables**:
+     - `entry_rate` = `entry_count` / `rounds_played`
+     - `entry_win_rate` = `entry_wins` / max(`entry_count`, 1)
+     - `result` ∈ {win, loss}
+
+2. **H2: A more positive `first_kills − first_deaths` balance is associated with a larger `round_difference`.**
+   - **H0**: `fk_fd_diff` has no association with `round_difference`.
+   - **H1**: `fk_fd_diff` has a positive association with `round_difference`.
+   - **Variables**:
+     - `fk_fd_diff` = `first_kills` - `first_deaths`
+     - `round_difference` = `my_team_score` - `enemy_team_score`
+
+3. **H3: Entry-related signals add predictive value beyond `KD` when basic controls are included.**
+   - **H0**: Adding entry features does not improve predictive performance beyond `KD` + `ADR` + `KR` + `map` + `overtime`.
+   - **H1**: Adding entry features improves predictive performance beyond `KD` + `ADR` + `KR` + `map` + `overtime`.
+   - **Variables**:
+     - Base controls: `KD`, `ADR`, `KR`, `map`, `overtime`
+     - Entry features: `entry_rate`, `entry_win_rate`, `first_kills`, `first_deaths`
+

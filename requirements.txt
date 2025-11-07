@@ -1,8 +1,0 @@
-# Faceit API Data Scraper - Python Dependencies
-# Installation: pip install -r requirements.txt
-
-# For HTTP requests and API calls
-requests>=2.28.0
-
-# For data analysis, DataFrame operations and CSV file reading/writing
-pandas>=1.5.0
