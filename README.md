@@ -8,13 +8,6 @@
 
 In FACEIT matches, players are often judged by their **KD (Kill/Death ratio)**—a traditional performance metric calculated as kills divided by deaths. However, KD is easy to read but can miss what really wins rounds. A player can maintain a good KD by getting late kills (after the round outcome is largely decided), while another player might take hard **entry duels** (the first combat encounter in a round) that open the site and help the team but lower their KD. The first duel in a round changes the state from 5v5 to 5v4 or 4v5. With a 5v4 numerical advantage, teams trade more safely, take map control more easily, and close the round more often. Because of this, entry actions may explain winning better than KD, especially early in the round.
 
-**Key Terms Used:**
-- **KD**: Kill/Death ratio (kills divided by deaths)
-- **Entry duel**: The first combat encounter in a round that determines initial advantage
-- **ADR**: Average Damage per Round
-- **KR**: Kills per Round
-- **First kill/death**: The first elimination in a round, creating a numerical advantage (5v4)
-
 **This project focuses on two key questions:**
 1. Do entry signals relate to **win/loss** and **score difference** more strongly than KD?
 2. When we include simple controls like **ADR**, **KR**, **map**, and **overtime**, do entry signals improve prediction of **match result** compared with using KD alone?
