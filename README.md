@@ -78,3 +78,49 @@ In FACEIT matches, players are often judged by their **KD (Kill/Death ratio)**�
      - Base controls: `KD`, `ADR`, `KR`, `map`, `overtime`
      - Entry features: `entry_rate`, `entry_win_rate`, `first_kills`, `first_deaths`
 
+---
+
+### **Statistical Tests**
+
+**H1: Entry win rate is positively associated with winning the match**
+- SUPPORTED
+- Pearson correlation: r=0.162, p=0.0003
+- Partial correlation (map+month control): r=0.159, p=0.0005
+
+**H2: A more positive first_kills - first_deaths balance is associated with a larger round_difference**
+- NOT SUPPORTED
+- Pearson correlation: r=-0.0026, p=0.9547
+- Partial correlation (map+month control): r=-0.0009, p=0.9842
+
+**H3: Entry-related signals add predictive value beyond KD when basic controls are included**
+- PARTIALLY SUPPORTED
+- entry_win_rate: r=0.162, p=0.0003
+- first_kills: r=0.128, p=0.0049
+- first_deaths: r=-0.147, p=0.0012
+- entry_rate: r=-0.030, p=0.514
+
+### **Machine Learning Results**
+
+**H1: Entry win rate predicts match outcome**
+- PARTIALLY SUPPORTED
+- Test Accuracy: 72.16%
+- ROC-AUC: 0.8452
+- entry_win_rate coefficient: +0.1029 (ranks 5th after KD/ADR/KR)
+
+**H2: fk_fd_diff predicts round difference**
+- NOT SUPPORTED
+- Linear Regression Test R²: -0.0085
+- Random Forest Test R²: -0.1458
+
+**H3: Entry features improve prediction beyond KD+ADR+KR**
+- NOT SUPPORTED
+- Base Model (KD+ADR+KR) Accuracy: 76.29%
+- Full Model (Base+Entry) Accuracy: 72.16%
+- Base Model AUC: 0.8678 vs Full Model AUC: 0.8452
+
+### **Key Findings**
+- Traditional metrics (KD, ADR, KR) are strongest predictors (KD: r=0.47)
+- Entry win rate shows statistical significance but limited practical value
+- Simpler models outperform complex ones
+- Round margins unpredictable from individual stats alone
+
