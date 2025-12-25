@@ -101,18 +101,18 @@ In FACEIT matches, players are often judged by their **KD (Kill/Death ratio)**�
 
 ### **Machine Learning Results**
 
-**H1: Entry win rate predicts match outcome**
+**H1: Entry win rate is positively associated with winning the match**
 - PARTIALLY SUPPORTED
 - Test Accuracy: 72.16%
 - ROC-AUC: 0.8452
 - entry_win_rate coefficient: +0.1029 (ranks 5th after KD/ADR/KR)
 
-**H2: fk_fd_diff predicts round difference**
+**H2: A more positive first_kills - first_deaths balance is associated with a larger round_difference**
 - NOT SUPPORTED
 - Linear Regression Test R²: -0.0085
 - Random Forest Test R²: -0.1458
 
-**H3: Entry features improve prediction beyond KD+ADR+KR**
+**H3: Entry-related signals add predictive value beyond KD when basic controls are included**
 - NOT SUPPORTED
 - Base Model (KD+ADR+KR) Accuracy: 76.29%
 - Full Model (Base+Entry) Accuracy: 72.16%
